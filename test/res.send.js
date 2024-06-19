@@ -1,3 +1,4 @@
+'use strict'
 
 var assert = require('assert')
 var Buffer = require('safe-buffer').Buffer
@@ -544,7 +545,7 @@ describe('res', function(){
           var chunk = !Buffer.isBuffer(body)
             ? Buffer.from(body, encoding)
             : body;
-          chunk.toString().should.equal('hello, world!');
+          assert.strictEqual(chunk.toString(), 'hello, world!')
           return '"custom"';
         });
 
